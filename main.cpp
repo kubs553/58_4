@@ -18,10 +18,13 @@ int bin(string x)
     return ans;
 }
 
-int oblicz(int x, int y)
+int oblicz(int x, int y, int Tx, int Ty)
 {
-    int ans = (x - y) * (x - y);
-    return ans;
+    int licznik = (Tx - Ty) * (Tx - Ty);
+    int mianownik = abs(x - y);
+    float ans = (float)licznik / (float)mianownik;
+    ans = ceil(ans);
+    return (int)ans;
 }
 
 int main()
@@ -43,7 +46,7 @@ int main()
         {
             for(int j = 0; j < v.size(); j++)
             {
-                int ans = oblicz(v[i], v[j]);
+                int ans = oblicz(i, j, v[i], v[j]);
                 maxx = max(maxx, ans);
             }
         }
